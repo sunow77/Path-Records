@@ -11,16 +11,16 @@
 |[Practical Deep Learning for Coders 2019](https://course19.fast.ai/ )|2019|2019版，2 parts；[hiromis的notes (github.com)](https://github.com/hiromis/notes/tree/master)|
 |Practical Deep Learning for Coders 2018|2018|2018版，已经被替代|
 |[fast.ai](https://docs.fast.ai/)|-|fastai的documentation|
-|[Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD]([Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD: Howard, Jeremy, Gugger, Sylvain: 9781492045526: Amazon.com: Books](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527))|-|一本书，[免费]([Practical Deep Learning for Coders - The book](https://course.fast.ai/Resources/book.html))|
+|[Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)|-|一本书，[免费](https://course.fast.ai/Resources/book.html)|
 |[new fast.ai course: A Code-First Introduction to Natural Language Processing – fast.ai](https://www.fast.ai/posts/2019-07-08-fastai-nlp.html)|-|其他类型课程|
 
 
 
-## [Practical Deep Learning 2022](https://course.fast.ai/) & [Fastbook](https://github.com/fastai/fastbook)
+## [Practical Deep Learning 2022 Part1](https://course.fast.ai/) & [Fastbook](https://github.com/fastai/fastbook)
 
-### 1: Getting started (PDL2022)
+## 1: Getting started (PDL2022)
 
-#### *Is it a bird? Creating a model from your own data*
+### *Is it a bird? Creating a model from your own data*
 
 *   流程
 
@@ -66,9 +66,9 @@
   import time '鉴于效率非常重要，因此要记录time'
   ```
 
-### 1: intro (fastbook1)
+## 1: intro (fastbook1)
 
-#### 1.1 初学
+### 1.1 初学
 
 ```python
 #图像识别
@@ -162,36 +162,36 @@ learn.fine_tune(10) #这里使用了fine_tune而不是fit_one_cycle
 learn.show_results()
 ```
 
-#### 1.2 **怎样快速获取fastai中方法的解释-doc**
+### 1.2 **怎样快速获取fastai中方法的解释-doc**
 
 ```python
 doc(learn.predict)
 '''返回learn.predict方法的解释'''
 ```
 
-#### 1.3 过拟合
+### 1.3 过拟合
 
 即使您的模型尚未完全记住所有数据，在训练的早期阶段可能已经记住了其中的某些部分。因此，您训练的时间越长，您在训练集上的准确性就会越好；验证集的准确性也会在一段时间内提高，但最终会开始变差，因为模型开始记住训练集而不是在数据中找到可泛化的潜在模式。当这种情况发生时，我们说模型*过拟合*。
 
 我们有很多避免过拟合的办法，但只有真的出现过拟合了才会用这些办法。我们经常看到一些人训练模型，他们有充足的数据，但是过早地使用了避免过拟合的办法，结果导致模型的准确性不好，还不如过拟合了的模型准确性高。
 
-#### 1.4 架构
+### 1.4 架构
 
 * CNN：创建计算机视觉模型的当前最先进方法
 
   ResNet，一种标准架构，有18、34、50、101和152
 
-#### 1.5 预训练/迁移学习
+### 1.5 预训练/迁移学习
 
 使用预训练模型是我们训练更准确、更快速、使用更少数据和更少时间和金钱的最重要方法。您可能会认为使用预训练模型将是学术深度学习中最研究的领域...但您会非常、非常错误！预训练模型的重要性通常在大多数课程、书籍或软件库功能中**没有**得到认可或讨论，并且在学术论文中很少被考虑。当我们在 2020 年初写这篇文章时，事情刚刚开始改变，但这可能需要一段时间。因此要小心：您与之交谈的大多数人可能会严重低估您可以在深度学习中使用少量资源做些什么，因为他们可能不会深入了解如何使用预训练模型。
 
 使用一个预训练模型来执行一个与其最初训练目的不同的任务被称为***迁移学习***。不幸的是，**由于迁移学习研究不足，很少有领域提供预训练模型**。例如，目前在医学领域很少有预训练模型可用，这使得在该领域使用迁移学习具有挑战性。此外，目前还不清楚如何将迁移学习应用于诸如时间序列分析之类的任务。
 
-#### 1.6 head
+### 1.6 head
 
 When using a pretrained model, `vision_learner` will remove the last layer, since that is always specifically customized to the original training task (i.e. ImageNet dataset classification), and replace it with one or more new layers with randomized weights, of an appropriate size for the dataset you are working with. This last part of the model is known as the *head*.
 
-#### 1.7 训练集、验证集、测试集
+### 1.7 训练集、验证集、测试集
 
 在用训练集训练后，我们用验证集查看训练效果，根据验证集的效果，调整超参数hyperparameter，因此，验证集仍然半暴露在训练模型中。为了能更好地评估模型的效果，用验证集显然是不理想的，所以我们还会隔绝出一个完全没有用过的测试集。
 
@@ -199,7 +199,7 @@ When using a pretrained model, `vision_learner` will remove the last layer, sinc
 
 在我们实际的训练中，验证集和测试集的选择很有讲究。比如我们预测时间序列，最好的划分是把最近的一段时间作为验证集/测试集，这样我们可以评估模型对未来的预测效果；比如我们识别驾驶员的行为，最好的划分是把一个驾驶员完全隔绝成验证集/测试集，这样我们可以评估模型对不同的人是不是都有很好的识别效果。
 
-#### 1.8 其他
+### 1.8 其他
 
 * 时间序列转换成图像
 
@@ -215,7 +215,7 @@ When using a pretrained model, `vision_learner` will remove the last layer, sinc
 
   ![](img/dlcf_0117.png)
 
-#### 1.9 术语
+### 1.9 术语
 
   | Term             | Meaning                                                      |
   | ---------------- | ------------------------------------------------------------ |
@@ -235,19 +235,19 @@ When using a pretrained model, `vision_learner` will remove the last layer, sinc
   | Overfitting      | Training a model in such a way that it _remembers_ specific features of the input data, rather than generalizing well to data not seen during training |
   | CNN              | Convolutional neural network; a type of neural network that works particularly well for computer vision tasks |
 
-### 2：Deployment (PDL2022)-暂时跳过
+## 2：Deployment (PDL2022)-暂时跳过
 
-### 2: Production (fastbook)-暂时跳过
+## 2: Production (fastbook)-暂时跳过
 
-### 3: Neural net foundations (PDL2022)
+## 3: Neural net foundations (PDL2022)
 
-#### *How does a neural net really work?*
+### *How does a neural net really work?*
 
 paperspace
 
-### 3: mnist_basics (fastbook4)
+## 3: mnist_basics (fastbook4)
 
-#### 3.1 像素：计算机视觉的基础
+### 3.1 像素：计算机视觉的基础
 
 ```python
 from fastcore.all import *
@@ -290,7 +290,7 @@ F.mse_loss(a_3, mean7).sqrt() #mse均方误差，sqrt()开根，RMSE均方根误
 #MSE相比L1范数来说会更狠地惩罚大的误差，而对小误差更加宽容
 ```
 
-#### 3.2 NumPy 数组和 PyTorch 张量
+### 3.2 NumPy 数组和 PyTorch 张量
 
 * [NumPy](https://numpy.org) 是 Python 中用于科学和数值编程最广泛使用的库。它提供了类似的功能和类似的 API，与 PyTorch 提供的功能相似；然而，它不支持使用 GPU 或计算梯度，这两者对于深度学习都是至关重要的。
 
@@ -309,7 +309,7 @@ tns[:, 1] #tensor([2, 5])
 tns +1 # tensor([[2, 3, 4],[5, 6, 7]])
 ```
 
-#### 3.3 使用Broadcasting计算Metrics
+### 3.3 使用Broadcasting计算Metrics
 
 * 可以使用MSE或L1范数作为metrcs，但是有时候不太好理解，所以一般情况下使用**accuracy**作为metrics
 
@@ -328,7 +328,7 @@ def is_3(x): return mnist_distance(x, mean3) < mnist_distance(x, mean7) #不是3
 accuracy_3s = is_3(valid_3_tens).float().mean()
 ```
 
-#### 3.4 SGD随机梯度下降
+### 3.4 SGD随机梯度下降
 
 ![](img/dlcf_0401.png)
 
@@ -341,13 +341,13 @@ yt.backward() #backward,其实就是calculates_grad
 xt.grad #计算梯度，tensor(6.)
 ```
 
-#### 3.5 学习率
+### 3.5 学习率
 
 ```python
 w -= w.grad * lr #lr学习率
 ```
 
-#### 3.6 实例
+### 3.6 实例
 
 ```python
 time = torch.arange(0,20).float()
@@ -383,7 +383,7 @@ while loss>3:
     apply_step(params)
 ```
 
-#### 3.7 MNIST codes
+### 3.7 MNIST codes
 
 * sigmoid：我们预测这个predctions总是在0~1，但实际上它可能在这个范围之外，就需要采用一种方法把它放进来
 
@@ -419,7 +419,7 @@ list(dl)
  (tensor([14, 11]), ('o', 'l'))]'''
 ```
 
-##### nn.Linear：做的事情如下
+#### nn.Linear：做的事情如下
 
 ```python
 #初始化参数
@@ -435,7 +435,7 @@ w,b=linear_model.parameters()
 '''上面的linear1就变成了linear_model'''
 ```
 
-##### SGD：下面一共三版，慢慢简化后用到SGD()类
+#### SGD：下面一共三版，慢慢简化后用到SGD()类
 
 ```python
 '第一版：全部自己定义函数'
@@ -540,7 +540,7 @@ def train_model(model,epochs):
 train_model(linear_model,20)
 ```
 
-##### Learn.fit：
+#### Learn.fit：
 
 ```python
 '第一版'
@@ -603,7 +603,7 @@ lr=1.
 learn.fit(10,lr=lr)
 ```
 
-##### 实例
+#### 实例
 
 
 ```python
@@ -645,7 +645,7 @@ lr=1.
 learn.fit(10,lr=lr) 
 ```
 
-##### **汇总codes**
+#### **汇总codes**
 
 ```python
 from fastcore.all import *
@@ -680,7 +680,7 @@ lr=1.
 learn.fit(10,lr=lr) 
 ```
 
-#### 3.8 添加非线性
+### 3.8 添加非线性
 
 *rectified linear unit*
 
@@ -728,7 +728,7 @@ valid_loss:L(learn.recorder.values).itemgot(1)
 batch_accuracy:L(learn.recorder.values).itemgot(2)'''
 ```
 
-#### 3.9 术语
+### 3.9 术语
 
 | Term | Meaning|
 |:---|---|
@@ -744,9 +744,9 @@ batch_accuracy:L(learn.recorder.values).itemgot(2)'''
 |Parameters | Numbers that are randomly initialized, and optimized (that is, the numbers that define the model) |
 |Special Tensors | Rank zero: scalar / Rank one: vector / Rank two: matrix |
 
-### 4: Natural Language (NLP) (PDL2022)
+## 4: Natural Language (NLP) (PDL2022)
 
-#### 4.1 发展
+### 4.1 发展
 
 （1）**ULMFit** (用的RNN): Wikitext(103)Language Model (30%准确率) → IMDb Language Model → IMDb Classifier
 
@@ -756,7 +756,7 @@ batch_accuracy:L(learn.recorder.values).itemgot(2)'''
 
 可以看到似乎Transformer要比ULMFit高级，实际上两者的用途不同；另外，ULMFit能够阅读更长的句子，如果一个document包含超过2000个单词，那么就更推荐使用ULMFit进行分类。
 
-#### 4.2 最重要的package
+### 4.2 最重要的package
 
 1/ pandas
 
@@ -766,9 +766,9 @@ batch_accuracy:L(learn.recorder.values).itemgot(2)'''
 
 4/ pytorch
 
-##### 参考书：[Python for Data Analysis, 3E About the Open Edition]([Python for Data Analysis, 3E](https://wesmckinney.com/book/))
+#### 参考书：[Python for Data Analysis, 3E About the Open Edition]([Python for Data Analysis, 3E](https://wesmckinney.com/book/))
 
-#### 4.3 Tokenization
+### 4.3 Tokenization
 
 A deep learning model expects numbers as inputs, not English sentences! So we need to do two things:
 
@@ -798,7 +798,7 @@ tokz.tokenize("A platypus is an ornithorhynchus anatinus.")
 '''
 ```
 
-#### 4.4 训练集与验证集的划分
+### 4.4 训练集与验证集的划分
 
 Training set & Validation set
 
@@ -812,7 +812,7 @@ I strongly recommend reading her article [How (and why) to create a good validat
 * cross-validation比较危险，除非用到的case是那种可以随机洗牌的情况（随机分ABC三组数据集，AB合并做训练集-C做验证集，三组循环，最后求平均值作为模型的performance）；
 * 所以用一个test set测试集去最终确认一下模型的好坏也蛮重要的。
 
-#### 4.5 Metrics
+### 4.5 Metrics
 
 In real life, outside of Kaggle, things not easy... As my partner Dr Rachel Thomas notes in [The problem with metrics is a big problem for AI](https://www.fast.ai/2019/09/24/metrics/):
 
@@ -826,7 +826,7 @@ In real life, outside of Kaggle, things not easy... As my partner Dr Rachel Thom
 * Metrics通过定量方式衡量结果，但我们依然需要定性的信息才能获得好的metrics；
 * 去询问已在此山中的人永远可以foresee一些不良后果，如老师可以很容易地知道，用学生分数作为唯一衡量标准会导致什么糟糕的结果。
 
-#### 4.6 codes
+### 4.6 codes
 
 ```python
 # 检查是否为kaggle环境
@@ -952,7 +952,7 @@ submission = datasets.Dataset.from_dict({
 submission.to_csv('submission.csv', index=False)
 ```
 
-#### 4.7 超参数：权重衰减weight decay
+### 4.7 超参数：权重衰减weight decay
 
 L2 正则化通过在损失函数中加入一个与模型权重的平方和成正比的项来实现惩罚。具体来说，假设我们有一个损失函数 `L(w)`，表示模型的损失，其中 `w` 是模型的权重参数，那么加入 L2 正则化后的损失函数 `L2(w)` 就是：
 $$
@@ -972,9 +972,9 @@ $$
 
 通俗说明，因为在损失函数中加入了weights的平方和，为了让损失函数变小，模型会倾向于减小weights的数值，可是当数值为0的时候，这个模型的预测又会很差，所以在训练的过程中，模型就会找到一个微妙的平衡：一些对预测不太有用的特征对应的weights会被压缩到很小，让对预测有用的特征对应的weights获得足够的空间。
 
-### 4: nlp (fastbook10)
+## 4: nlp (fastbook10)
 
-#### 4.1 自监督学习
+### 4.1 自监督学习
 
 使用嵌入在自变量中的标签来训练模型，而不是需要外部标签。例如，训练一个模型来预测文本中的下一个单词。自监督学习也可以用于其他领域；例如，参见[“自监督学习和计算机视觉”](https://oreil.ly/ECjfJ)以了解视觉应用。
 
@@ -1002,11 +1002,11 @@ $$
 
 * 分词方法：基于单词的、基于子词的和基于字符的
 
-#### 4.2 Tokenization & Numericalization
+### 4.2 Tokenization & Numericalization
 
 由分词过程创建的列表的一个元素。它可以是一个单词*word tokenization*，一个单词的一部分（一个*子词*）*subword tokenization*，或一个单个字符。
 
-##### 4.2.1 Word Tokenization
+#### 4.2.1 Word Tokenization
 
 ```python
 from fastai.text.all import *
@@ -1044,7 +1044,7 @@ print(coll_repr(tkn(txt),30))
 | xxmaj        | 指示下一个单词以大写字母开头（因为减小vocabulary的体量，节省计算和内存资源，我们将所有字母转换为小写） |
 | xxunk        | 指示下一个单词是未知的                                       |
 
-##### 4.2.2 Subword Tokenization
+#### 4.2.2 Subword Tokenization
 
 ```python
 # 读取200个files中的句子txts
@@ -1062,7 +1062,7 @@ subword(100)
 '▁ J i a n g ▁ X i a n ▁ u s e s ▁the ▁ c o m p l e x ▁ b a c k s t o r y ▁ o f ▁ L'
 ```
 
-##### 4.2.3 Numericalization
+#### 4.2.3 Numericalization
 
 ```python
 # 将txts前200条text都Word Tokenization（也可以subword tokenization，本例用了前者）
@@ -1090,7 +1090,7 @@ TensorText([   0,    0, 1269,    9, 1270,    0,   14,    0,    0,   12,    0,
 
 `Numericalize`的默认值为`min_freq=3`和`max_vocab=60000`。`max_vocab=60000`导致 fastai 用特殊的*未知单词*标记`xxunk`替换除最常见的 60,000 个单词之外的所有单词。这有助于避免过大的嵌入矩阵，因为这可能会减慢训练速度并占用太多内存，并且还可能意味着没有足够的数据来训练稀有单词的有用表示。然而，通过设置`min_freq`来处理最后一个问题更好；默认值`min_freq=3`意味着出现少于三次的任何单词都将被替换为`xxunk`。
 
-##### 4.2.4 将这些txt放进batches里面，形成DataLoader
+#### 4.2.4 将这些txt放进batches里面，形成DataLoader
 
 <img src="D:\Git\a\Path-Records\img\04-2-4.jpg" style="zoom:100%;" />
 
@@ -1109,11 +1109,11 @@ x.shape, y.shape
 'xxmaj xxunk xxmaj xxunk uses the complex xxunk of xxmaj xxunk xxmaj xxunk and xxmaj'
 ```
 
-#### 4.3 训练文本分类器
+### 4.3 训练文本分类器
 
 * 使用迁移学习训练最先进的文本分类器有两个步骤：首先，我们需要微调在 Wikipedia 上预训练的语言模型以适应 IMDb 评论的语料库，然后我们可以使用该模型来训练分类器。
 
-##### 4.3.1 语言识别-数据加载器DataBlock
+#### 4.3.1 语言识别-数据加载器DataBlock
 
 * **实例方法**，需要实例化类，然后才能调用的方法，MyClass.instance_method()会报错；**类方法**就不需要实例化类，直接调用MyClass.class_method()不会报错，而且可以访问类变量；**静态方法**也不需要实例化类，直接调用MyClass.static_method()也不会报错，但没办法访问类变量。
 
@@ -1157,7 +1157,7 @@ dls_lm.show_batch(max_n=3)
 | 0    | xxbos xxmaj it ’s awesome ! xxmaj in xxmaj story xxmaj mode , your going from punk to pro . xxmaj you have to complete goals that involve skating , driving , and walking . xxmaj you create your own skater and give it a name , and you can make it look stupid or realistic . xxmaj you are with your friend xxmaj eric throughout the game until he betrays you and gets you kicked off of the skateboard | xxmaj it ’s awesome ! xxmaj in xxmaj story xxmaj mode , your going from punk to pro . xxmaj you have to complete goals that involve skating , driving , and walking . xxmaj you create your own skater and give it a name , and you can make it look stupid or realistic . xxmaj you are with your friend xxmaj eric throughout the game until he betrays you and gets you kicked off of the skateboard xxunk |
 | 1    | what xxmaj i ‘ve read , xxmaj death xxmaj bed is based on an actual dream , xxmaj george xxmaj barry , the director , successfully transferred dream to film , only a genius could accomplish such a task . \n\n xxmaj old mansions make for good quality horror , as do portraits , not sure what to make of the killer bed with its killer yellow liquid , quite a bizarre dream , indeed . xxmaj also , this | xxmaj i ‘ve read , xxmaj death xxmaj bed is based on an actual dream , xxmaj george xxmaj barry , the director , successfully transferred dream to film , only a genius could accomplish such a task . \n\n xxmaj old mansions make for good quality horror , as do portraits , not sure what to make of the killer bed with its killer yellow liquid , quite a bizarre dream , indeed . xxmaj also , this is |
 
-##### 4.3.2 语言识别-Fine-tune
+#### 4.3.2 语言识别-Fine-tune
 
 * **Embedding**：嵌入是把文字转换成计算机能理解的数字，而且这种转换不是简单的 1 对 1 映射，而是让语义相近的词在数值空间里也靠得更近。常见的 NLP 任务都会用到 Embedding，比如：**Word2Vec**（Google 开发的词向量模型）、**GloVe**（斯坦福开发的词向量）、**FastText**（Facebook 开发的词向量）、**BERT / GPT**（现代 NLP 模型的底层都会用更高级的 Embedding）。
 
@@ -1175,7 +1175,7 @@ learn = language_model_learner(
 
 * **Dropout**是一种防止神经网络过拟合的方法。它的基本思想是：在训练过程中，随机“丢弃”（设为 0）一部分神经元的输出，防止模型过度依赖某些特定的特征。它类似于在训练过程中的数据强化。
 
-###### ①**Dropout vs. Weight Decay：区别对比**
+##### ①**Dropout vs. Weight Decay：区别对比**
 
 | 特性        | Dropout                                              | Weight Decay (L2 正则化)             |
 | ---------------- | -------------------------------------------------------- | ---------------------------------------- |
@@ -1186,7 +1186,7 @@ learn = language_model_learner(
 | 直观理解     | 让神经网络变成一个小型集成学习                       | 减少大权重，防止模型过度拟合特定数据 |
 | 对计算的影响 | 增加计算量，因为每次训练都要随机丢弃不同神经元       | 不会增加计算量                       |
 
-###### ②**什么时候用 Dropout？什么时候用 Weight Decay？**
+##### ②**什么时候用 Dropout？什么时候用 Weight Decay？**
 
 虽然它们的实现方式不同，但目的都是 防止模型对训练数据过拟合，提高泛化能力。
 
@@ -1220,7 +1220,7 @@ fine_tune不会保存半成品模型结果，所以我们用了fit_one_cycle
 learn.fit_one_cycle(1, 2e-2)
 ```
 
-###### ③**fit vs. fit_one_cycle 对比**
+##### ③**fit vs. fit_one_cycle 对比**
 
 | 对比项     | fit                      | fit_one_cycle               |
 | ---------- | ------------------------ | --------------------------- |
@@ -1230,7 +1230,7 @@ learn.fit_one_cycle(1, 2e-2)
 | 优点       | 简单、稳定               | 提高泛化能力、收敛更快      |
 | 缺点       | 可能训练慢，泛化能力不佳 | 需要调整参数，稍复杂        |
 
-##### 4.3.3 语言识别-保存模型
+#### 4.3.3 语言识别-保存模型
 
 ```python
 # 保存经历1次epoch的模型状态
@@ -1259,7 +1259,7 @@ learn.save_encoder(path2/'finetuned')
 learn.load_encoder(path2/'finetuned')
 ```
 
-###### fastai的快捷构造器learn
+##### fastai的快捷构造器learn
 
 不同任务有不同的快捷构造器：
 
@@ -1270,7 +1270,7 @@ learn.load_encoder(path2/'finetuned')
 | 表格数据             | `tabular_learner`                                   | `Learner` |
 | 协同过滤（推荐系统） | `collab_learner`                                    | `Learner` |
 
-##### 4.3.4 文本生成（不在阶段中）
+#### 4.3.4 文本生成（不在阶段中）
 
 ```python
 TEXT = "I liked this movie because"
@@ -1282,7 +1282,7 @@ preds = [learn.predict(TEXT, N_WORDS, temperature=0.75)
 print("\n".join(preds))
 ```
 
-##### 4.3.5 文本分类-数据加载器DataBlock
+#### 4.3.5 文本分类-数据加载器DataBlock
 
 ```python
 # 创建数据加载器
@@ -1317,7 +1317,7 @@ nums_samp.map(len)
 
 * 使用DataBlock+is_lm=False时，它会自动帮我们操作。
 
-###### DataBlock & DataLoaders
+##### DataBlock & DataLoaders
 
 | **组件**         | **作用**                            |
 | ---------------- | ----------------------------------- |
@@ -1325,7 +1325,7 @@ nums_samp.map(len)
 | `.dataloaders()` | 将 `DataBlock` 转为 `DataLoaders`   |
 | `DataLoaders`    | 真正的数据加载器，包含训练/验证数据 |
 
-###### DataLoaders的主要变种
+##### DataLoaders的主要变种
 
 | DataLoaders 类型                  | 用途说明                                                     |
 | --------------------------------- | ------------------------------------------------------------ |
@@ -1339,7 +1339,7 @@ nums_samp.map(len)
 | `TimeseriesDataLoaders`           | 时间序列数据（用于预测未来序列值或做序列分类）               |
 | `MixedDataLoaders` / `MultiBlock` | 处理混合输入类型（如图像+表格+文本的多模态数据），通常通过 `DataBlock` 构建 |
 
-##### 4.3.6 文本分类-Fine-tune
+#### 4.3.6 文本分类-Fine-tune
 
 ```python
 learn = text_classifier_learner(dls_clas, AWD_LSTM, drop_mult=0.5,metrics=accuracy).to_fp16()
@@ -1362,7 +1362,7 @@ learn.unfreeze()
 learn.fit_one_cycle(2, slice(1e-3/(2.6**4),1e-3))
 ```
 
-#### 4.4 总流程codes
+### 4.4 总流程codes
 
 ```python
 # 准备
@@ -2971,6 +2971,9 @@ report_gpu()
 '''
 GPU:0
 process       3248 uses    11838.000 MB GPU memory
+占用了一个编号为0的GPU
+被分配了1个进程，标号为3248；这个进程使用的GPU内存为11838MB/1024≈11.56GB
+此时如果GPU的内存大于12GB，那么运行就不会崩溃，否则就要考虑下面的梯度累积或者平行运行了
 '''
 ```
 

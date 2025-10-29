@@ -47,9 +47,13 @@
 
 ## 2024/09/18 读了本书，提供一下学习深度学习的思路
 - **Meta learning: How To Learn Deep Learning And Thrive In The Digital World** by Radek Osmulski
-  [英文版本](https://annas-archive.org/md5/e952ddc8e6d57147fd2a4fad02513b26)    [中文版本（似乎是机翻)](https://note.youdao.com/ynoteshare/index.html?id=28ddb4ed0cd3457f2d0bb0529fa902e4&type=note&_time=1720776149418)    [个人笔记（仅供参考）](D:\Git\a\Path-Records\个人笔记-Meta learning How To Learn Deep Learning And Thrive In The Digital World.md)
+  [英文版本](https://annas-archive.org/md5/e952ddc8e6d57147fd2a4fad02513b26)    [中文版本（似乎是机翻)](https://note.youdao.com/ynoteshare/index.html?id=28ddb4ed0cd3457f2d0bb0529fa902e4&type=note&_time=1720776149418)    [个人笔记（仅供参考）](https://github.com/sunow77/Path-Records-for-Deep-Learning/blob/main/个人笔记-Meta learning How To Learn Deep Learning And Thrive In The Digital World.md)
   
 - *这本书只是提供学习路径，并不提供任何深度学习有关的知识，甚至没有相关知识读起来会有些困难，因为他会提到一些训练process，不可避免地会用到专业名字。我读起来部分地方无法理解，但我觉得蛮提供思路的。*
-## 2025/03/03 开始fastai-Practical Deep Learning for Coders
+## 2025/03/03 开始fastai-Practical Deep Learning for Coders Part1
 - 本来想在此之前补充一个**[The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)**，用于学习命令行的，但实在是太枯燥了，没有看完。
 - 直接开始fastai的**Practical Deep Learning for Coders**了
+- Part1部分是一些蛮基础的算法，但是实现起来也很方便，建议YouTube视频、Kaggle上的Notebooks和书[Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)结合着看，书的免费[版本](https://course.fast.ai/Resources/book.html)
+- [Part1笔记](https://github.com/sunow77/Path-Records-for-Deep-Learning/blob/main/个人笔记-fastai_PDL part1.md)
+
+## 2025/10/15 开始fastai-Practical Deep Learning for Coders Part2
